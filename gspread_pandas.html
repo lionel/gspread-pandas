@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gspread_pandas &mdash; gspread-pandas 0.9.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="gspread-pandas 0.9.0 documentation" href="index.html"/>
+        <link rel="up" title="Modules" href="modules.html"/>
+        <link rel="next" title="Change Log" href="changelog.html"/>
+        <link rel="prev" title="Modules" href="modules.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gspread-pandas
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">gspread_pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-gspread_pandas.client">gspread_pandas.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-gspread_pandas.conf">gspread_pandas.conf module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">gspread-pandas</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">Modules</a> &raquo;</li>
+      
+    <li>gspread_pandas</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/gspread_pandas.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gspread-pandas">
+<h1>gspread_pandas<a class="headerlink" href="#gspread-pandas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-gspread_pandas.client">
+<span id="gspread-pandas-client-module"></span><h3>gspread_pandas.client module<a class="headerlink" href="#module-gspread_pandas.client" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="gspread_pandas.client.Spread">
+<em class="property">class </em><code class="descclassname">gspread_pandas.client.</code><code class="descname">Spread</code><span class="sig-paren">(</span><em>user</em>, <em>spread</em>, <em>sheet=None</em>, <em>config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Simple wrapper for gspread to interact with Pandas. It holds an instance of
+an &#8216;open&#8217; spreadsheet, an &#8216;open&#8217; worksheet, and a list of available worksheets.</p>
+<p>Each user will be associated with specific OAuth credentials. The authenticated user will
+need the appropriate permissions to the Spreadsheet in order to interact with it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user</strong> (<em>str</em>) &#8211; string indicating the key to a users credentials, which will
+be stored in a file (by default they will be stored in <code class="docutils literal"><span class="pre">~/.google/creds/&lt;user&gt;</span></code>
+but can be modified with <code class="docutils literal"><span class="pre">creds_dir</span></code> property in config)</li>
+<li><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of the spreadsheet; must have read access by
+the authenticated user,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_spread" title="gspread_pandas.client.Spread.open_spread"><code class="xref py py-meth docutils literal"><span class="pre">open_spread</span></code></a></li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, name or index of Worksheet,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+<li><strong>config</strong> (<em>dict</em>) &#8211; optional, if you want to provide an alternate configuration,
+see <a class="reference internal" href="#gspread_pandas.conf.get_config" title="gspread_pandas.conf.get_config"><code class="xref py py-meth docutils literal"><span class="pre">get_config</span></code></a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.clear_sheet">
+<code class="descname">clear_sheet</code><span class="sig-paren">(</span><em>rows=1</em>, <em>cols=1</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.clear_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset open worksheet to a blank sheet with given dimensions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rows</strong> (<em>int</em>) &#8211; number of rows (default 1)</li>
+<li><strong>cols</strong> (<em>int</em>) &#8211; number of columns (default 1)</li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, name or index of Worksheet,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.create_sheet">
+<code class="descname">create_sheet</code><span class="sig-paren">(</span><em>name</em>, <em>rows=1</em>, <em>cols=1</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.create_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new worksheet with the given number of rows and cols.</p>
+<p>Automatically opens that sheet after it&#8217;s created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>str</em>) &#8211; name of new Worksheet</li>
+<li><strong>rows</strong> (<em>int</em>) &#8211; number of rows (default 1)</li>
+<li><strong>cols</strong> (<em>int</em>) &#8211; number of columns (default 1)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.delete_sheet">
+<code class="descname">delete_sheet</code><span class="sig-paren">(</span><em>sheet</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.delete_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a worksheet by title. Returns whether the sheet was deleted or not. If
+current sheet is deleted, the <code class="docutils literal"><span class="pre">sheet</span></code> property will be set to None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em>) &#8211; name of Worksheet</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if deleted successfully, else False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.df_to_sheet">
+<code class="descname">df_to_sheet</code><span class="sig-paren">(</span><em>df</em>, <em>index=True</em>, <em>headers=True</em>, <em>start_row=1</em>, <em>start_col=1</em>, <em>replace=False</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.df_to_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a DataFrame into a worksheet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>df</strong> (<em>DataFrame</em>) &#8211; the DataFrame to save</li>
+<li><strong>index</strong> (<em>bool</em>) &#8211; whether to include the index in worksheet (default True)</li>
+<li><strong>headers</strong> (<em>bool</em>) &#8211; whether to include the headers in the worksheet (default True)</li>
+<li><strong>start_row</strong> (<em>int</em>) &#8211; row number for first row of headers or data (default 1)</li>
+<li><strong>start_col</strong> (<em>int</em>) &#8211; column number for first column of headers or data (default 1)</li>
+<li><strong>replace</strong> (<em>bool</em>) &#8211; whether to remove everything in the sheet first (default False)</li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open or create a different sheet
+before saving,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.find_sheet">
+<code class="descname">find_sheet</code><span class="sig-paren">(</span><em>sheet</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.find_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a given worksheet by title.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em>) &#8211; name of Worksheet</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a Worksheet by the given name or None if not found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.get_sheet_dims">
+<code class="descname">get_sheet_dims</code><span class="sig-paren">(</span><em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.get_sheet_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dimensions of the currently open Worksheet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a tuple containing (num_rows,num_cols)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.open">
+<code class="descname">open</code><span class="sig-paren">(</span><em>spread</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a spreadsheet, and optionally a worksheet. See
+<code class="xref py py-meth docutils literal"><span class="pre">open_spread</span></code> and
+<code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of Spreadsheet</li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; name or index of Worksheet</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.open_sheet">
+<code class="descname">open_sheet</code><span class="sig-paren">(</span><em>sheet</em>, <em>create=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a worksheet. Optionally, if the sheet doesn&#8217;t exist then create it first
+(only when <code class="docutils literal"><span class="pre">sheet</span></code> is a str).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; name or index of Worksheet</li>
+<li><strong>create</strong> (<em>bool</em>) &#8211; whether to create the sheet if it doesn&#8217;t exist,
+see <code class="xref py py-meth docutils literal"><span class="pre">create_sheet</span></code> (default False)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.open_spread">
+<code class="descname">open_spread</code><span class="sig-paren">(</span><em>spread</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open_spread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a spreadsheet. Authorized user must already have read access.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of Spreadsheet</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.sheet_to_df">
+<code class="descname">sheet_to_df</code><span class="sig-paren">(</span><em>index=1</em>, <em>headers=1</em>, <em>start_row=1</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.sheet_to_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pull a worksheet into a DataFrame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>index</strong> (<em>int</em>) &#8211; col number of index column, 0 or None for no index (default 1)</li>
+<li><strong>headers</strong> (<em>int</em>) &#8211; number of rows that represent headers (default 1)</li>
+<li><strong>start_row</strong> (<em>int</em>) &#8211; row number for first row of headers or data (default 1)</li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a DataFrame with the data from the Worksheet</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.update_cells">
+<code class="descname">update_cells</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>vals</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.update_cells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the values in a given range. The values should be listed in order
+from left to right across rows.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> (<em>tuple</em><em>,</em><em>str</em>) &#8211; tuple indicating (row, col) or string like &#8216;A1&#8217;</li>
+<li><strong>end</strong> (<em>tuple</em><em>,</em><em>str</em>) &#8211; tuple indicating (row, col) or string like &#8216;Z20&#8217;</li>
+<li><strong>vals</strong> (<em>list</em>) &#8211; array of values to populate</li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gspread_pandas.client.Spread.client">
+<code class="descname">client</code><em class="property"> = None</em><a class="headerlink" href="#gspread_pandas.client.Spread.client" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>(gspread.client.Client)</cite> - Current gspread Client</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gspread_pandas.client.Spread.email">
+<code class="descname">email</code><em class="property"> = ''</em><a class="headerlink" href="#gspread_pandas.client.Spread.email" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>(str)</cite> - E-mail for the currently authenticated user</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gspread_pandas.client.Spread.sheet">
+<code class="descname">sheet</code><em class="property"> = None</em><a class="headerlink" href="#gspread_pandas.client.Spread.sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>(gspread.models.Worksheet)</cite> - Currently open Worksheet</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gspread_pandas.client.Spread.sheets">
+<code class="descname">sheets</code><em class="property"> = []</em><a class="headerlink" href="#gspread_pandas.client.Spread.sheets" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>(list)</cite> - List of available Worksheets</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="gspread_pandas.client.Spread.spread">
+<code class="descname">spread</code><em class="property"> = None</em><a class="headerlink" href="#gspread_pandas.client.Spread.spread" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>(gspread.models.Spreadsheet)</cite> - Currently open Spreadsheet</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-gspread_pandas.conf">
+<span id="gspread-pandas-conf-module"></span><h3>gspread_pandas.conf module<a class="headerlink" href="#module-gspread_pandas.conf" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="gspread_pandas.conf.ensure_path">
+<code class="descclassname">gspread_pandas.conf.</code><code class="descname">ensure_path</code><span class="sig-paren">(</span><em>pth</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.conf.ensure_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="gspread_pandas.conf.get_config">
+<code class="descclassname">gspread_pandas.conf.</code><code class="descname">get_config</code><span class="sig-paren">(</span><em>conf_dir='/home/diego/.google/'</em>, <em>file_name='google_secret.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.conf.get_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get config for Google client. Looks in ~/.google/google_secret.json by
+default, can override with conf_dir and file_name</p>
+<p>Download json from <a class="reference external" href="https://console.developers.google.com/apis/credentials">https://console.developers.google.com/apis/credentials</a></p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Change Log" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral" title="Modules" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Diego Fernandez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

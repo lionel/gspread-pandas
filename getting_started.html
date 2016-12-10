@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; gspread-pandas 0.9.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="gspread-pandas 0.9.0 documentation" href="index.html"/>
+        <link rel="next" title="Modules" href="modules.html"/>
+        <link rel="prev" title="Indices and tables" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gspread-pandas
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-usage">Installation / Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client-credentials">Client Credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-credentials">User Credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">gspread-pandas</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://badge.fury.io/py/gspread-pandas"><img alt="PyPI version" src="https://badge.fury.io/py/gspread-pandas.svg" /></a></p>
+<p>author: Diego Fernandez</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A package to easily open an instance of a Google spreadsheet and
+interact with worksheets through Pandas DataFrames.</p>
+<p>Some key goals/features:</p>
+<ul class="simple">
+<li>Nicely handle headers and indexes.</li>
+<li>Run on Jupyter, headless server, and/or scripts</li>
+<li>Allow storing different user credentials</li>
+<li>Automatically handle token refreshes</li>
+</ul>
+</div>
+<div class="section" id="installation-usage">
+<h2>Installation / Usage<a class="headerlink" href="#installation-usage" title="Permalink to this headline">¶</a></h2>
+<p>To install use pip:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install gspread-pandas
+</pre></div>
+</div>
+<p>Or clone the repo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://github.com/aiguofer/gspread-pandas.git
+$ python setup.py install
+</pre></div>
+</div>
+<p>Before using, you will need to download Google client credentials for
+your app.</p>
+<div class="section" id="client-credentials">
+<h3>Client Credentials<a class="headerlink" href="#client-credentials" title="Permalink to this headline">¶</a></h3>
+<p>To allow a script to use Google Drive API we need to authenticate our
+self towards Google. To do so, we need to create a project, describing
+the tool and generate credentials. Please use your web browser and go to
+<a class="reference external" href="https://console.developers.google.com/">Google console</a> and :</p>
+<ul class="simple">
+<li>Choose <strong>Create Project</strong> in popup menu on the top.</li>
+<li>A dialog box appears, so give your project a name and click on
+<strong>Create</strong> button.</li>
+<li>On the left-side menu click on <strong>API Manager</strong>.</li>
+<li>A table of available APIs is shown. Switch <strong>Drive API</strong> and click on
+<strong>Enable API</strong> button. Other APIs might be switched off, for our
+purpose.</li>
+<li>On the left-side menu click on <strong>Credentials</strong>.</li>
+<li>In section <strong>OAuth consent screen</strong> select your email address and
+give your product a name. Then click on <strong>Save</strong> button.</li>
+<li>In section <strong>Credentials</strong> click on <strong>Add credentials</strong> and switch
+<strong>OAuth 2.0 client ID</strong>.</li>
+<li>A dialog box <strong>Create Cliend ID</strong> appears. Select <strong>Application
+type</strong> item as <strong>Other</strong>.</li>
+<li>Click on <strong>Create</strong> button.</li>
+<li>Click on <strong>Download JSON</strong> icon on the right side of created <strong>OAuth
+2.0 client IDs</strong> and store the downloaded file on your file system.
+Please be aware, the file contains your private credentials, so take
+care of the file in the same way you care of your private SSH key;
+i.e. move downloaded JSON to <code class="docutils literal"><span class="pre">~/.google/google_secret.json</span></code> (or you
+can configure the directory and file name by directly calling
+<code class="docutils literal"><span class="pre">gspread_pandas.conf.get_config</span></code></li>
+</ul>
+<p>Thanks to similar project
+<a class="reference external" href="https://github.com/maybelinot/df2gspread">df2gspread</a> for this great
+description of how to get the client credentials.</p>
+</div>
+<div class="section" id="user-credentials">
+<h3>User Credentials<a class="headerlink" href="#user-credentials" title="Permalink to this headline">¶</a></h3>
+<p>Once you have your client credentials, you can have multiple user
+credentials stored in the same machine. This can be useful when you have
+a shared server (for example with a Jupyter notebook server) with
+multiple people that may want to use the library. The first parameter to
+<code class="docutils literal"><span class="pre">Spread</span></code> must be the key identifying a user&#8217;s credentials. The first
+time this is called for a specific key, you will have to authenticate
+through a text based OAuth prompt; this makes it possible to run on a headless
+server through ssh or through a Jupyter notebook. After this, the
+credentials for that user will be stored (by default in <code class="docutils literal"><span class="pre">~/.google/creds</span></code>)and the tokens will be
+refreshed automatically any time the tool is used.</p>
+<p>Users will only be able to interact with Spreadsheets that they have
+access to.</p>
+</div>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://github.com/aiguofer/gspread-pandas.git &amp;&amp; cd gspread-pandas
+$ pip install -e &quot;.[dev]&quot;
+</pre></div>
+</div>
+<p>TBD</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">gspread_pandas</span> <span class="k">import</span> <span class="n">Spread</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;http://www.ats.ucla.edu/stat/data/binary.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="c1"># &#39;Example Spreadsheet&#39; needs to already exist and your user must have access to it</span>
+<span class="n">spread</span> <span class="o">=</span> <span class="n">Spread</span><span class="p">(</span><span class="s1">&#39;example_user&#39;</span><span class="p">,</span> <span class="s1">&#39;Example Spreadsheet&#39;</span><span class="p">)</span>
+<span class="c1"># This will ask to authenticate if you haven&#39;t done so before for &#39;example_user&#39;</span>
+
+<span class="c1"># Display available worksheets</span>
+<span class="n">spread</span><span class="o">.</span><span class="n">sheets</span>
+
+<span class="c1"># Save DataFrame to worksheet &#39;New Test Sheet&#39;, create it first if it doesn&#39;t exist</span>
+<span class="n">spread</span><span class="o">.</span><span class="n">df_to_sheet</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sheet</span><span class="o">=</span><span class="s1">&#39;New Test Sheet&#39;</span><span class="p">,</span> <span class="n">start_row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">spread</span><span class="o">.</span><span class="n">update_cells</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Created by:&#39;</span><span class="p">,</span> <span class="n">spread</span><span class="o">.</span><span class="n">email</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spread</span><span class="p">)</span>
+<span class="c1"># &lt;gspread_pandas.client.Spread - User: &#39;&lt;example_user&gt;@gmail.com&#39;, Spread: &#39;Example Spreadsheet&#39;, Sheet: &#39;New Test Sheet&#39;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Indices and tables" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Diego Fernandez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
