@@ -135,7 +135,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/gspread_pandas.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/gspread_pandas.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -154,8 +154,7 @@
 <dl class="class">
 <dt id="gspread_pandas.client.Spread">
 <em class="property">class </em><code class="descclassname">gspread_pandas.client.</code><code class="descname">Spread</code><span class="sig-paren">(</span><em>user</em>, <em>spread</em>, <em>sheet=None</em>, <em>config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Simple wrapper for gspread to interact with Pandas. It holds an instance of
+<dd><p>Simple wrapper for gspread to interact with Pandas. It holds an instance of
 an &#8216;open&#8217; spreadsheet, an &#8216;open&#8217; worksheet, and a list of available worksheets.</p>
 <p>Each user will be associated with specific OAuth credentials. The authenticated user will
 need the appropriate permissions to the Spreadsheet in order to interact with it.</p>
@@ -170,7 +169,7 @@ but can be modified with <code class="docutils literal"><span class="pre">creds_
 <li><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of the spreadsheet; must have read access by
 the authenticated user,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_spread" title="gspread_pandas.client.Spread.open_spread"><code class="xref py py-meth docutils literal"><span class="pre">open_spread</span></code></a></li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, name or index of Worksheet,
+<li><strong>sheet</strong> (<em>str,int</em>) &#8211; optional, name or index of Worksheet,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 <li><strong>config</strong> (<em>dict</em>) &#8211; optional, if you want to provide an alternate configuration,
 see <a class="reference internal" href="#gspread_pandas.conf.get_config" title="gspread_pandas.conf.get_config"><code class="xref py py-meth docutils literal"><span class="pre">get_config</span></code></a></li>
@@ -190,7 +189,7 @@ see <a class="reference internal" href="#gspread_pandas.conf.get_config" title="
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>rows</strong> (<em>int</em>) &#8211; number of rows (default 1)</li>
 <li><strong>cols</strong> (<em>int</em>) &#8211; number of columns (default 1)</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, name or index of Worksheet,
+<li><strong>sheet</strong> (<em>str,int</em>) &#8211; optional, name or index of Worksheet,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 </ul>
 </td>
@@ -251,7 +250,7 @@ current sheet is deleted, the <code class="docutils literal"><span class="pre">s
 <li><strong>start_row</strong> (<em>int</em>) &#8211; row number for first row of headers or data (default 1)</li>
 <li><strong>start_col</strong> (<em>int</em>) &#8211; column number for first column of headers or data (default 1)</li>
 <li><strong>replace</strong> (<em>bool</em>) &#8211; whether to remove everything in the sheet first (default False)</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open or create a different sheet
+<li><strong>sheet</strong> (<em>str,int</em>) &#8211; optional, if you want to open or create a different sheet
 before saving,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 </ul>
@@ -285,7 +284,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str,int</em>) &#8211; optional, if you want to open a different sheet first,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a tuple containing (num_rows,num_cols)</td>
@@ -306,7 +305,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of Spreadsheet</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; name or index of Worksheet</li>
+<li><strong>sheet</strong> (<em>str,int</em>) &#8211; name or index of Worksheet</li>
 </ul>
 </td>
 </tr>
@@ -324,7 +323,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; name or index of Worksheet</li>
+<li><strong>sheet</strong> (<em>str,int</em>) &#8211; name or index of Worksheet</li>
 <li><strong>create</strong> (<em>bool</em>) &#8211; whether to create the sheet if it doesn&#8217;t exist,
 see <code class="xref py py-meth docutils literal"><span class="pre">create_sheet</span></code> (default False)</li>
 </ul>
@@ -360,7 +359,7 @@ see <code class="xref py py-meth docutils literal"><span class="pre">create_shee
 <li><strong>index</strong> (<em>int</em>) &#8211; col number of index column, 0 or None for no index (default 1)</li>
 <li><strong>headers</strong> (<em>int</em>) &#8211; number of rows that represent headers (default 1)</li>
 <li><strong>start_row</strong> (<em>int</em>) &#8211; row number for first row of headers or data (default 1)</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+<li><strong>sheet</strong> (<em>str,int</em>) &#8211; optional, if you want to open a different sheet first,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 </ul>
 </td>
@@ -382,10 +381,10 @@ from left to right across rows.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>start</strong> (<em>tuple</em><em>,</em><em>str</em>) &#8211; tuple indicating (row, col) or string like &#8216;A1&#8217;</li>
-<li><strong>end</strong> (<em>tuple</em><em>,</em><em>str</em>) &#8211; tuple indicating (row, col) or string like &#8216;Z20&#8217;</li>
+<li><strong>start</strong> (<em>tuple,str</em>) &#8211; tuple indicating (row, col) or string like &#8216;A1&#8217;</li>
+<li><strong>end</strong> (<em>tuple,str</em>) &#8211; tuple indicating (row, col) or string like &#8216;Z20&#8217;</li>
 <li><strong>vals</strong> (<em>list</em>) &#8211; array of values to populate</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+<li><strong>sheet</strong> (<em>str,int</em>) &#8211; optional, if you want to open a different sheet first,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 </ul>
 </td>
@@ -436,7 +435,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 
 <dl class="function">
 <dt id="gspread_pandas.conf.get_config">
-<code class="descclassname">gspread_pandas.conf.</code><code class="descname">get_config</code><span class="sig-paren">(</span><em>conf_dir='/home/diego/.google/'</em>, <em>file_name='google_secret.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.conf.get_config" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">gspread_pandas.conf.</code><code class="descname">get_config</code><span class="sig-paren">(</span><em>conf_dir='/home/rdu/difernan/.google/'</em>, <em>file_name='google_secret.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.conf.get_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get config for Google client. Looks in ~/.google/google_secret.json by
 default, can override with conf_dir and file_name</p>
 <p>Download json from <a class="reference external" href="https://console.developers.google.com/apis/credentials">https://console.developers.google.com/apis/credentials</a></p>
