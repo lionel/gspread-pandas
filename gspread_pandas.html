@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gspread_pandas &mdash; gspread-pandas 0.9.0 documentation</title>
+  <title>gspread_pandas &mdash; gspread-pandas 0.10.0 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="gspread-pandas 0.9.0 documentation" href="index.html"/>
+    <link rel="top" title="gspread-pandas 0.10.0 documentation" href="index.html"/>
         <link rel="up" title="Modules" href="modules.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="Modules" href="modules.html"/> 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.9.0
+                0.10.0
               </div>
             
           
@@ -237,7 +237,7 @@ current sheet is deleted, the <code class="docutils literal"><span class="pre">s
 
 <dl class="method">
 <dt id="gspread_pandas.client.Spread.df_to_sheet">
-<code class="descname">df_to_sheet</code><span class="sig-paren">(</span><em>df</em>, <em>index=True</em>, <em>headers=True</em>, <em>start_row=1</em>, <em>start_col=1</em>, <em>replace=False</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.df_to_sheet" title="Permalink to this definition">¶</a></dt>
+<code class="descname">df_to_sheet</code><span class="sig-paren">(</span><em>df</em>, <em>index=True</em>, <em>headers=True</em>, <em>start=(1</em>, <em>1)</em>, <em>replace=False</em>, <em>sheet=None</em>, <em>start_row=1</em>, <em>start_col=1</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.df_to_sheet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a DataFrame into a worksheet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -247,12 +247,14 @@ current sheet is deleted, the <code class="docutils literal"><span class="pre">s
 <li><strong>df</strong> (<em>DataFrame</em>) &#8211; the DataFrame to save</li>
 <li><strong>index</strong> (<em>bool</em>) &#8211; whether to include the index in worksheet (default True)</li>
 <li><strong>headers</strong> (<em>bool</em>) &#8211; whether to include the headers in the worksheet (default True)</li>
-<li><strong>start_row</strong> (<em>int</em>) &#8211; row number for first row of headers or data (default 1)</li>
-<li><strong>start_col</strong> (<em>int</em>) &#8211; column number for first column of headers or data (default 1)</li>
+<li><strong>start</strong> (<em>tuple,str</em>) &#8211; tuple indicating (row, col) or string like &#8216;A1&#8217; for top left
+cell</li>
 <li><strong>replace</strong> (<em>bool</em>) &#8211; whether to remove everything in the sheet first (default False)</li>
 <li><strong>sheet</strong> (<em>str,int</em>) &#8211; optional, if you want to open or create a different sheet
 before saving,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+<li><strong>start_row</strong> (<em>int</em>) &#8211; (DEPRECATED - use <cite>start</cite>) row number for first row of headers or data (default 1)</li>
+<li><strong>start_col</strong> (<em>int</em>) &#8211; (DEPRECATED - use <cite>start</cite>) column number for first column of headers or data (default 1)</li>
 </ul>
 </td>
 </tr>
@@ -311,6 +313,13 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.open_or_create_sheet">
+<code class="descname">open_or_create_sheet</code><span class="sig-paren">(</span><em>sheet</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open_or_create_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED, use the <cite>create</cite> param for <cite>open_sheet</cite> instead</p>
+<p>Open a worksheet. If it doesn&#8217;t exist, create it first.</p>
 </dd></dl>
 
 <dl class="method">
@@ -486,7 +495,7 @@ default, can override with conf_dir and file_name</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.9.0',
+            VERSION:'0.10.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
