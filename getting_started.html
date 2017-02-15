@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Started &mdash; gspread-pandas 0.10.1 documentation</title>
+  <title>Getting Started &mdash; gspread-pandas 0.11.0 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="gspread-pandas 0.10.1 documentation" href="index.html"/>
+    <link rel="top" title="gspread-pandas 0.11.0 documentation" href="index.html"/>
         <link rel="next" title="Modules" href="modules.html"/>
         <link rel="prev" title="Indices and tables" href="index.html"/> 
 
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.10.1
+                0.11.0
               </div>
             
           
@@ -203,8 +203,8 @@ type</strong> item as <strong>Other</strong>.</li>
 2.0 client IDs</strong> and store the downloaded file on your file system.
 Please be aware, the file contains your private credentials, so take
 care of the file in the same way you care of your private SSH key;
-i.e. move downloaded JSON to <code class="docutils literal"><span class="pre">~/.google/google_secret.json</span></code> (or you
-can configure the directory and file name by directly calling
+i.e. move downloaded JSON to <code class="docutils literal"><span class="pre">~/.config/gspread_pandas/google_secret.json</span></code>
+(or you can configure the directory and file name by directly calling
 <code class="docutils literal"><span class="pre">gspread_pandas.conf.get_config</span></code></li>
 </ul>
 <p>Thanks to similar project
@@ -221,8 +221,9 @@ multiple people that may want to use the library. The first parameter to
 time this is called for a specific key, you will have to authenticate
 through a text based OAuth prompt; this makes it possible to run on a headless
 server through ssh or through a Jupyter notebook. After this, the
-credentials for that user will be stored (by default in <code class="docutils literal"><span class="pre">~/.google/creds</span></code>)and the tokens will be
-refreshed automatically any time the tool is used.</p>
+credentials for that user will be stored (by default in
+<code class="docutils literal"><span class="pre">~/.config/gspread_pandas/creds</span></code>) and the tokens will berefreshed
+automatically any time the tool is used.</p>
 <p>Users will only be able to interact with Spreadsheets that they have
 access to.</p>
 </div>
@@ -313,7 +314,7 @@ $ pip install -e &quot;.[dev]&quot;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.10.1',
+            VERSION:'0.11.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
