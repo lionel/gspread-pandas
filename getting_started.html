@@ -94,7 +94,11 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-error">SSL Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eoferror-in-rodeo">EOFError in Rodeo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
@@ -262,13 +266,34 @@ $ pip install -e &quot;.[dev]&quot;
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
-<p>If you&#8217;re getting an SSL related error or can&#8217;t seem to be able to open existing spreadsheets that you have access to, you might be running into an issue caused by <code class="docutils literal"><span class="pre">certifi</span></code>. This has mainly been experienced on RHEL and CentOS running Python 2.7. You can read more about it <a class="reference external" href="https://github.com/burnash/gspread/issues/223">here</a> and <a class="reference external" href="https://github.com/burnash/gspread/issues/354">here</a> but, in short, the solution is to either install a specific version of <code class="docutils literal"><span class="pre">certifi</span></code> that works for you, or remove it altogether.</p>
+<div class="section" id="ssl-error">
+<h3>SSL Error<a class="headerlink" href="#ssl-error" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;re getting an SSL related error or can&#8217;t seem to be able to open existing
+spreadsheets that you have access to, you might be running into an issue caused by
+<code class="docutils literal"><span class="pre">certifi</span></code>. This has mainly been experienced on RHEL and CentOS running Python 2.7.
+You can read more about it <a class="reference external" href="https://github.com/burnash/gspread/issues/223">here</a>
+and <a class="reference external" href="https://github.com/burnash/gspread/issues/354">here</a> but, in short, the
+solution is to either install a specific version of <code class="docutils literal"><span class="pre">certifi</span></code> that works for you,
+or remove it altogether.</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">certifi</span><span class="o">==</span><span class="mf">2015.4</span><span class="o">.</span><span class="mi">28</span>
 </pre></div>
 </div>
 <p>or</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">certifi</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="eoferror-in-rodeo">
+<h3>EOFError in Rodeo<a class="headerlink" href="#eoferror-in-rodeo" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;re trying to use <code class="docutils literal"><span class="pre">gspread_pandas</span></code> from within
+<a class="reference external" href="https://www.yhat.com/products/rodeo">Rodeo</a> you might get an
+<code class="docutils literal"><span class="pre">EOFError:</span> <span class="pre">EOF</span> <span class="pre">when</span> <span class="pre">reading</span> <span class="pre">a</span> <span class="pre">line</span></code> error when trying to pass in the verification
+code. The workaround for this is to first verify your account in a regular shell.
+Since you&#8217;re just doing this to get your Oauth token, the spreadsheet doesn&#8217;t need
+to be valid. Just run this in shell:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;from gspread_pandas import Spread; Spread(&#39;&lt;user_key&gt;&#39;,&#39;&#39;)&quot;</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
