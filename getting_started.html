@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Started &mdash; gspread-pandas 0.11.2 documentation</title>
+  <title>Getting Started &mdash; gspread-pandas 0.12.0 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="gspread-pandas 0.11.2 documentation" href="index.html"/>
+    <link rel="top" title="gspread-pandas 0.12.0 documentation" href="index.html"/>
         <link rel="next" title="Modules" href="modules.html"/>
         <link rel="prev" title="Indices and tables" href="index.html"/> 
 
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.11.2
+                0.12.0
               </div>
             
           
@@ -193,8 +193,8 @@ the tool and generate credentials. Please use your web browser and go to
 <strong>Create</strong> button.</li>
 <li>On the left-side menu click on <strong>API Manager</strong>.</li>
 <li>A table of available APIs is shown. Switch <strong>Drive API</strong> and click on
-<strong>Enable API</strong> button. Other APIs might be switched off, for our
-purpose.</li>
+<strong>Enable API</strong> button. Do the same for <strong>Sheets API</strong>. Other APIs might
+be switched off, for our purpose.</li>
 <li>On the left-side menu click on <strong>Credentials</strong>.</li>
 <li>In section <strong>OAuth consent screen</strong> select your email address and
 give your product a name. Then click on <strong>Save</strong> button.</li>
@@ -271,15 +271,15 @@ $ pip install -e &quot;.[dev]&quot;
 <p>If you&#8217;re getting an SSL related error or can&#8217;t seem to be able to open existing
 spreadsheets that you have access to, you might be running into an issue caused by
 <code class="docutils literal"><span class="pre">certifi</span></code>. This has mainly been experienced on RHEL and CentOS running Python 2.7.
-You can read more about it <a class="reference external" href="https://github.com/burnash/gspread/issues/223">here</a>
-and <a class="reference external" href="https://github.com/burnash/gspread/issues/354">here</a> but, in short, the
+You can read more about it in <a class="reference external" href="https://github.com/burnash/gspread/issues/223">issue 223</a>
+and <a class="reference external" href="https://github.com/burnash/gspread/issues/354">issue 354</a> but, in short, the
 solution is to either install a specific version of <code class="docutils literal"><span class="pre">certifi</span></code> that works for you,
 or remove it altogether.</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">certifi</span><span class="o">==</span><span class="mf">2015.4</span><span class="o">.</span><span class="mi">28</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">certifi</span><span class="o">==</span><span class="mf">2015.4</span><span class="o">.</span><span class="mi">28</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">certifi</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">certifi</span>
 </pre></div>
 </div>
 </div>
@@ -340,7 +340,7 @@ to be valid. Just run this in shell:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.11.2',
+            VERSION:'0.12.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
