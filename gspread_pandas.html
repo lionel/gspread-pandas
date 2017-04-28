@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gspread_pandas &mdash; gspread-pandas 0.12.1 documentation</title>
+  <title>gspread_pandas &mdash; gspread-pandas 0.13.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="gspread-pandas 0.12.1 documentation" href="index.html"/>
+    <link rel="top" title="gspread-pandas 0.13.0 documentation" href="index.html"/>
         <link rel="up" title="Modules" href="modules.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="Modules" href="modules.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.12.1
+                0.13.0
               </div>
             
           
@@ -178,7 +178,7 @@
 <span id="gspread-pandas-client-module"></span><h3>gspread_pandas.client module<a class="headerlink" href="#module-gspread_pandas.client" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="gspread_pandas.client.Spread">
-<em class="property">class </em><code class="descclassname">gspread_pandas.client.</code><code class="descname">Spread</code><span class="sig-paren">(</span><em>user</em>, <em>spread</em>, <em>sheet=None</em>, <em>config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">gspread_pandas.client.</code><code class="descname">Spread</code><span class="sig-paren">(</span><em>user</em>, <em>spread</em>, <em>sheet=None</em>, <em>config=None</em>, <em>create_spread=False</em>, <em>create_sheet=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple wrapper for gspread to interact with Pandas. It holds an instance of
 an &#8216;open&#8217; spreadsheet, an &#8216;open&#8217; worksheet, and a list of available worksheets.</p>
 <p>Each user will be associated with specific OAuth credentials. The authenticated user will
@@ -199,6 +199,10 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sprea
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 <li><strong>config</strong> (<em>dict</em>) &#8211; optional, if you want to provide an alternate configuration,
 see <a class="reference internal" href="#gspread_pandas.conf.get_config" title="gspread_pandas.conf.get_config"><code class="xref py py-meth docutils literal"><span class="pre">get_config</span></code></a></li>
+<li><strong>create_sheet</strong> (<em>bool</em>) &#8211; whether to create the spreadsheet if it doesn&#8217;t exist,
+it wil use the <code class="docutils literal"><span class="pre">spread</span></code> value as the sheet title</li>
+<li><strong>create_spread</strong> (<em>bool</em>) &#8211; whether to create the sheet if it doesn&#8217;t exist,
+it wil use the <code class="docutils literal"><span class="pre">spread</span></code> value as the sheet title</li>
 </ul>
 </td>
 </tr>
@@ -323,7 +327,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 
 <dl class="method">
 <dt id="gspread_pandas.client.Spread.open">
-<code class="descname">open</code><span class="sig-paren">(</span><em>spread</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open" title="Permalink to this definition">¶</a></dt>
+<code class="descname">open</code><span class="sig-paren">(</span><em>spread</em>, <em>sheet=None</em>, <em>create_sheet=False</em>, <em>create_spread=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open a spreadsheet, and optionally a worksheet. See
 <code class="xref py py-meth docutils literal"><span class="pre">open_spread</span></code> and
 <code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code>.</p>
@@ -334,6 +338,10 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of Spreadsheet</li>
 <li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; name or index of Worksheet</li>
+<li><strong>create_sheet</strong> (<em>bool</em>) &#8211; whether to create the spreadsheet if it doesn&#8217;t exist,
+it wil use the <code class="docutils literal"><span class="pre">spread</span></code> value as the sheet title</li>
+<li><strong>create_spread</strong> (<em>bool</em>) &#8211; whether to create the sheet if it doesn&#8217;t exist,
+it wil use the <code class="docutils literal"><span class="pre">spread</span></code> value as the sheet title</li>
 </ul>
 </td>
 </tr>
@@ -370,13 +378,18 @@ see <code class="xref py py-meth docutils literal"><span class="pre">create_shee
 
 <dl class="method">
 <dt id="gspread_pandas.client.Spread.open_spread">
-<code class="descname">open_spread</code><span class="sig-paren">(</span><em>spread</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open_spread" title="Permalink to this definition">¶</a></dt>
+<code class="descname">open_spread</code><span class="sig-paren">(</span><em>spread</em>, <em>create=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.open_spread" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open a spreadsheet. Authorized user must already have read access.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of Spreadsheet</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>spread</strong> (<em>str</em>) &#8211; name, url, or id of Spreadsheet</li>
+<li><strong>create</strong> (<em>bool</em>) &#8211; whether to create the spreadsheet if it doesn&#8217;t exist,
+it wil use the <code class="docutils literal"><span class="pre">spread</span></code> value as the sheet title</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -532,7 +545,7 @@ by default, can override with conf_dir and file_name</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.12.1',
+            VERSION:'0.13.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
