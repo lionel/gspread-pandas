@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gspread_pandas &mdash; gspread-pandas 0.13.0 documentation</title>
+  <title>gspread_pandas &mdash; gspread-pandas 0.14.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="gspread-pandas 0.13.0 documentation" href="index.html"/>
+    <link rel="top" title="gspread-pandas 0.14.0 documentation" href="index.html"/>
         <link rel="up" title="Modules" href="modules.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="Modules" href="modules.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.13.0
+                0.14.0
               </div>
             
           
@@ -181,8 +181,8 @@
 <em class="property">class </em><code class="descclassname">gspread_pandas.client.</code><code class="descname">Spread</code><span class="sig-paren">(</span><em>user</em>, <em>spread</em>, <em>sheet=None</em>, <em>config=None</em>, <em>create_spread=False</em>, <em>create_sheet=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple wrapper for gspread to interact with Pandas. It holds an instance of
 an &#8216;open&#8217; spreadsheet, an &#8216;open&#8217; worksheet, and a list of available worksheets.</p>
-<p>Each user will be associated with specific OAuth credentials. The authenticated user will
-need the appropriate permissions to the Spreadsheet in order to interact with it.</p>
+<p>Each user will be associated with specific OAuth credentials. The authenticated user
+will need the appropriate permissions to the Spreadsheet in order to interact with it.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -267,7 +267,7 @@ current sheet is deleted, the <code class="docutils literal"><span class="pre">s
 
 <dl class="method">
 <dt id="gspread_pandas.client.Spread.df_to_sheet">
-<code class="descname">df_to_sheet</code><span class="sig-paren">(</span><em>df</em>, <em>index=True</em>, <em>headers=True</em>, <em>start=(1</em>, <em>1)</em>, <em>replace=False</em>, <em>sheet=None</em>, <em>start_row=1</em>, <em>start_col=1</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.df_to_sheet" title="Permalink to this definition">¶</a></dt>
+<code class="descname">df_to_sheet</code><span class="sig-paren">(</span><em>df</em>, <em>index=True</em>, <em>headers=True</em>, <em>start=(1</em>, <em>1)</em>, <em>replace=False</em>, <em>sheet=None</em>, <em>freeze_index=False</em>, <em>freeze_headers=False</em>, <em>start_row=1</em>, <em>start_col=1</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.df_to_sheet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a DataFrame into a worksheet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -283,6 +283,8 @@ cell</li>
 <li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open or create a different sheet
 before saving,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+<li><strong>freeze_index</strong> (<em>bool</em>) &#8211; whether to freeze the index columns (default False)</li>
+<li><strong>freeze_headers</strong> (<em>bool</em>) &#8211; whether to freeze the header rows (default False)</li>
 <li><strong>start_row</strong> (<em>int</em>) &#8211; (DEPRECATED - use <cite>start</cite>) row number for first row of headers or data (default 1)</li>
 <li><strong>start_col</strong> (<em>int</em>) &#8211; (DEPRECATED - use <cite>start</cite>) column number for first column of headers or data (default 1)</li>
 </ul>
@@ -303,6 +305,27 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em>) &#8211; name of Worksheet</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a Worksheet by the given name or None if not found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gspread_pandas.client.Spread.freeze">
+<code class="descname">freeze</code><span class="sig-paren">(</span><em>rows=None</em>, <em>cols=None</em>, <em>sheet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.freeze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Freeze rows and/or columns for the open worksheet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rows</strong> (<em>int</em>) &#8211; the DataFrame to save</li>
+<li><strong>cols</strong> (<em>int</em>) &#8211; whether to include the index in worksheet (default True)</li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open or create a different sheet
+before freezing,
+see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -545,7 +568,7 @@ by default, can override with conf_dir and file_name</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.13.0',
+            VERSION:'0.14.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
