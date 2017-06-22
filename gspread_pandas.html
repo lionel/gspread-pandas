@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gspread_pandas &mdash; gspread-pandas 0.14.2 documentation</title>
+  <title>gspread_pandas &mdash; gspread-pandas 0.14.3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="gspread-pandas 0.14.2 documentation" href="index.html"/>
+    <link rel="top" title="gspread-pandas 0.14.3 documentation" href="index.html"/>
         <link rel="up" title="Modules" href="modules.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="Modules" href="modules.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.14.2
+                0.14.3
               </div>
             
           
@@ -219,7 +219,7 @@ it wil use the <code class="docutils literal"><span class="pre">spread</span></c
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>rows</strong> (<em>int</em>) &#8211; number of rows (default 1)</li>
 <li><strong>cols</strong> (<em>int</em>) &#8211; number of columns (default 1)</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, name or index of Worksheet,
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em><em>,</em><em>Worksheet</em>) &#8211; optional; name, index, or Worksheet,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 </ul>
 </td>
@@ -257,7 +257,7 @@ current sheet is deleted, the <code class="docutils literal"><span class="pre">s
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em>) &#8211; name of Worksheet</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em><em>,</em><em>Worksheet</em>) &#8211; name or Worksheet</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if deleted successfully, else False</td>
 </tr>
@@ -280,7 +280,7 @@ current sheet is deleted, the <code class="docutils literal"><span class="pre">s
 <li><strong>start</strong> (<em>tuple</em><em>,</em><em>str</em>) &#8211; tuple indicating (row, col) or string like &#8216;A1&#8217; for top left
 cell</li>
 <li><strong>replace</strong> (<em>bool</em>) &#8211; whether to remove everything in the sheet first (default False)</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open or create a different sheet
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em><em>,</em><em>Worksheet</em>) &#8211; optional, if you want to open or create a different sheet
 before saving,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 <li><strong>freeze_index</strong> (<em>bool</em>) &#8211; whether to freeze the index columns (default False)</li>
@@ -297,7 +297,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <dl class="method">
 <dt id="gspread_pandas.client.Spread.find_sheet">
 <code class="descname">find_sheet</code><span class="sig-paren">(</span><em>sheet</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.find_sheet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find a given worksheet by title.</p>
+<dd><p>Find a given worksheet by title</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -321,7 +321,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>rows</strong> (<em>int</em>) &#8211; the DataFrame to save</li>
 <li><strong>cols</strong> (<em>int</em>) &#8211; whether to include the index in worksheet (default True)</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open or create a different sheet
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em><em>,</em><em>Worksheet</em>) &#8211; optional, if you want to open or create a different sheet
 before freezing,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 </ul>
@@ -339,7 +339,7 @@ see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em><em>,</em><em>Worksheet</em>) &#8211; optional, if you want to open a different sheet first,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a tuple containing (num_rows,num_cols)</td>
@@ -389,7 +389,7 @@ it wil use the <code class="docutils literal"><span class="pre">spread</span></c
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; name or index of Worksheet</li>
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em><em>,</em><em>Worksheet</em>) &#8211; name, index, or Worksheet object</li>
 <li><strong>create</strong> (<em>bool</em>) &#8211; whether to create the sheet if it doesn&#8217;t exist,
 see <code class="xref py py-meth docutils literal"><span class="pre">create_sheet</span></code> (default False)</li>
 </ul>
@@ -457,7 +457,7 @@ from left to right across rows.</p>
 <li><strong>start</strong> (<em>tuple</em><em>,</em><em>str</em>) &#8211; tuple indicating (row, col) or string like &#8216;A1&#8217;</li>
 <li><strong>end</strong> (<em>tuple</em><em>,</em><em>str</em>) &#8211; tuple indicating (row, col) or string like &#8216;Z20&#8217;</li>
 <li><strong>vals</strong> (<em>list</em>) &#8211; array of values to populate</li>
-<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em>) &#8211; optional, if you want to open a different sheet first,
+<li><strong>sheet</strong> (<em>str</em><em>,</em><em>int</em><em>,</em><em>Worksheet</em>) &#8211; optional, if you want to open a different sheet first,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 </ul>
 </td>
@@ -574,7 +574,7 @@ by default, can override with conf_dir and file_name</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.14.2',
+            VERSION:'0.14.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
