@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gspread_pandas &mdash; gspread-pandas 0.14.3 documentation</title>
+  <title>gspread_pandas &mdash; gspread-pandas 0.15.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="gspread-pandas 0.14.3 documentation" href="index.html"/>
+    <link rel="top" title="gspread-pandas 0.15.0 documentation" href="index.html"/>
         <link rel="up" title="Modules" href="modules.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="Modules" href="modules.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.14.3
+                0.15.0
               </div>
             
           
@@ -267,7 +267,7 @@ current sheet is deleted, the <code class="docutils literal"><span class="pre">s
 
 <dl class="method">
 <dt id="gspread_pandas.client.Spread.df_to_sheet">
-<code class="descname">df_to_sheet</code><span class="sig-paren">(</span><em>df</em>, <em>index=True</em>, <em>headers=True</em>, <em>start=(1</em>, <em>1)</em>, <em>replace=False</em>, <em>sheet=None</em>, <em>freeze_index=False</em>, <em>freeze_headers=False</em>, <em>start_row=1</em>, <em>start_col=1</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.df_to_sheet" title="Permalink to this definition">¶</a></dt>
+<code class="descname">df_to_sheet</code><span class="sig-paren">(</span><em>df</em>, <em>index=True</em>, <em>headers=True</em>, <em>start=(1</em>, <em>1)</em>, <em>replace=False</em>, <em>sheet=None</em>, <em>freeze_index=False</em>, <em>freeze_headers=False</em>, <em>fill_value=''</em>, <em>start_row=1</em>, <em>start_col=1</em><span class="sig-paren">)</span><a class="headerlink" href="#gspread_pandas.client.Spread.df_to_sheet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save a DataFrame into a worksheet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -285,6 +285,7 @@ before saving,
 see <a class="reference internal" href="#gspread_pandas.client.Spread.open_sheet" title="gspread_pandas.client.Spread.open_sheet"><code class="xref py py-meth docutils literal"><span class="pre">open_sheet</span></code></a> (default None)</li>
 <li><strong>freeze_index</strong> (<em>bool</em>) &#8211; whether to freeze the index columns (default False)</li>
 <li><strong>freeze_headers</strong> (<em>bool</em>) &#8211; whether to freeze the header rows (default False)</li>
+<li><strong>fill_value</strong> (<em>str</em>) &#8211; value to fill nulls with (default &#8216;&#8217;)</li>
 <li><strong>start_row</strong> (<em>int</em>) &#8211; (DEPRECATED - use <cite>start</cite>) row number for first row of headers or data (default 1)</li>
 <li><strong>start_col</strong> (<em>int</em>) &#8211; (DEPRECATED - use <cite>start</cite>) column number for first column of headers or data (default 1)</li>
 </ul>
@@ -574,7 +575,7 @@ by default, can override with conf_dir and file_name</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.14.3',
+            VERSION:'0.15.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
